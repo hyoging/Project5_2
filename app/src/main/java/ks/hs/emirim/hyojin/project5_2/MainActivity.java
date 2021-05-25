@@ -3,6 +3,9 @@ package ks.hs.emirim.hyojin.project5_2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -53,8 +56,20 @@ public class MainActivity extends AppCompatActivity {
                     result = num1 / num2;
                     break;
             }
-            textResult.setText(R.string.text_result);
-            textResult.append(" "+ restult);
+            textResult.setText("계산 결과:");
+            textResult.append(" "+ result);
+        }
+    };
+}
+View.OnClickListener btnNumListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Button btn = (Button)v;
+            if(edit1.isFocused()){
+                edit1.setText(edit1.getText().toString()+btn.getText());
+            }else {
+                edit2.setText(edit2.getText().toString() + btn.getText());
+            }
         }
     };
 }
